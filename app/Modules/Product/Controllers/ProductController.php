@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         // Récupère et enregistre les données validées avec l'utilisateur connecté
         $data = $request->only(['ref', 'code_barre', 'name_product', 'price', 'quantity', 'picture','features']);
-        $data['user_id'] = auth()->id(); 
+        $data['user_id'] = auth()->id();
         $productInterface->createProduct($data);
 
         // Redirige vers la liste des produits

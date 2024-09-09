@@ -9,6 +9,7 @@ interface UserRepositoryInterface{
 
     public function getAllUsers():array;
 
+    
     /**
      * Summary of createUser
      * @param array<string, string> $data

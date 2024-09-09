@@ -8,3 +8,5 @@ use App\Modules\Supplier\Controllers\SupplierController;
 
 
 Route::get('/commande-fournisseur', [SupplierController::class,'commande_fournisseur'])->middleware('web')->name('supplier.orders');
+Route::delete('/orders/{order}', [SupplierController::class, 'destroy'])->name('orders.destroy');
+

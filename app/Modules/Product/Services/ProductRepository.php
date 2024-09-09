@@ -3,6 +3,7 @@
 namespace App\Modules\Product\Services;
 
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Product\Repositories\ProductRepositoryInterface;
 
@@ -34,9 +35,14 @@ class ProductRepository implements ProductRepositoryInterface
     }
 
     public function deleteProduct(int $id): void
-    {
-        Product::where('id', $id)->delete(); // Supprime le produit sans retour
-    }
+{
+    // Delete orders that reference this product
+    Order::where('product_id', $id)->delete();
+
+    // Now delete the product
+    Product::where('id', $id)->delete();
+}
+
 
     public function getLatestProducts(): \Illuminate\Database\Eloquent\Collection
     {

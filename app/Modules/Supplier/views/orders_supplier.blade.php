@@ -31,8 +31,8 @@
                         <!-- Delete Form -->
                         <form style="display:inline-block;">
                             @csrf
-                       
-                            
+
+
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this order?');">Delete</button>
                         </form>
                     </td>
